@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class NewBehaviourScript : MonoBehaviour
 {
-    [SerializeField] private GameObject colliderObject, hurtObject;
+    [SerializeField] private GameObject colliderObject;
 
     private Rigidbody2D rb;
     private SpriteRenderer rend;
@@ -44,21 +44,7 @@ public class NewBehaviourScript : MonoBehaviour
         if (other.CompareTag("Object") && insideObject == false)
         {
             moveDirection *= -1;
-            /*
-            if (switchAngle > 0)
-            {
-                switchAngle = 0;
-            }
-            else
-            {
-                switchAngle = 180f;
-            }
-            colliderObject.transform.rotation.ToAngleAxis(out switchAngle, out Vector3 y);
-            rend.flipX = !rend.flipX;
-            */
-
             insideObject = true;
-
             transform.localScale = new Vector3(moveDirection, 1, 1);
         }
         else if (other.CompareTag("Player"))
