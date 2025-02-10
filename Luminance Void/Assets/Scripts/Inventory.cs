@@ -17,6 +17,9 @@ public static class Inventory
     public static string GetHealth(bool wantString)
     { return health.ToString(); }
 
+    public static int GetMaxHealth()
+    { return maxHealth; }
+
     public static int GetCoins()
     { return coinAmount; }
 
