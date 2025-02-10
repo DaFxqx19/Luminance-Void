@@ -80,6 +80,7 @@ public class PlayerControls : MonoBehaviour
 
     private void Fire(InputAction.CallbackContext context)
     {
+        Inventory.BuyHealth();
         Debug.Log("We Fired");
     }
 
