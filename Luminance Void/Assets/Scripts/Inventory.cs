@@ -23,6 +23,11 @@ public static class Inventory
     public static string GetCoins(bool wantString)
     { return coinAmount.ToString(); }
 
+    public static void AddCoins(int amount)
+    {
+        coinAmount += amount;
+    }
+
     public static void SetCoins(int amount)
     {
         coinAmount = amount;
