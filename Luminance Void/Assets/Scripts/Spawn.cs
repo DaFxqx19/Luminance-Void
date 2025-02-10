@@ -10,11 +10,12 @@ public class Spawn : MonoBehaviour
     {
         SpawnFunction();
         Inventory.SetCoins(1000);
+        Inventory.SetHealth(100);
     }
 
     public void SpawnFunction()
     {
-        //Inventory.BuyHealth(0, true);
+        Inventory.BuyHealth(0, true);
         if (Inventory.GetCoins() != 0)
         {
             Inventory.SetCoins(Mathf.CeilToInt(2 * Inventory.coinAmount / 3));

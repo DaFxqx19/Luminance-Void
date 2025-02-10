@@ -25,6 +25,7 @@ public class PlayerControls : MonoBehaviour
     private InputAction move;
     private InputAction fire;
     private InputAction jump;
+    private InputAction buySmallHealth;
 
     private void Start()
     {
@@ -50,6 +51,10 @@ public class PlayerControls : MonoBehaviour
         jump = playerControls.Player.Jump;
         jump.Enable();
         jump.performed += Jump;
+
+        buySmallHealth = playerControls.Player.SmallHeal;
+        buySmallHealth.Enable();
+        buySmallHealth.performed += BuySmallHealth;
     }
 
     private void OnDisable()
@@ -57,6 +62,7 @@ public class PlayerControls : MonoBehaviour
         move.Disable();
         fire.Disable();
         jump.Disable();
+        buySmallHealth.Disable();
     }
 
     private void Update()
@@ -80,7 +86,7 @@ public class PlayerControls : MonoBehaviour
 
     private void Fire(InputAction.CallbackContext context)
     {
-        Inventory.BuyHealth();
+        //Inventory.BuyHealth();
         Debug.Log("We Fired");
     }
 
@@ -115,5 +121,10 @@ public class PlayerControls : MonoBehaviour
 
     private void JumpRenewal()
     {
+    }
+
+    private void BuySmallHealth(InputAction.CallbackContext context)
+    {
+        Inventory.BuyHealth();
     }
 }

@@ -38,6 +38,11 @@ public static class Inventory
         BuyHealth(amount, false);
     }
 
+    public static void SetHealth(int amount)
+    {
+        health = amount;
+    }
+
     public static void BuyHealth(int amount, bool revival)
     {
         Debug.Log("Bought health: " + amount);
@@ -47,6 +52,17 @@ public static class Inventory
             if (health + amount >= maxHealth) { amount = maxHealth - health; }
             health += amount;
             SetCoins(GetCoins() - amount * healthCost);
+        }
+    }
+
+    public static void hurtPlayer(int amount)
+    {
+        health -= amount;
+        if (health <= 0)
+        {
+            //KILl!!
+            Debug.Log("DIED!");
+            Spawn.FindFirstObjectByType<Spawn>().SpawnFunction();
         }
     }
 }
