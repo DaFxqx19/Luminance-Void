@@ -20,6 +20,8 @@ public class PlayerControls : MonoBehaviour
 
     [SerializeField] private PlayerInputActions playerControls;
 
+    [SerializeField] private GameObject aimObject;
+
     private Vector2 moveDirection = Vector2.zero;
 
     private InputAction move;
@@ -126,5 +128,10 @@ public class PlayerControls : MonoBehaviour
     private void BuySmallHealth(InputAction.CallbackContext context)
     {
         Inventory.BuyHealth();
+    }
+
+    public float SetAimGrade()
+    {
+        return aimObject.transform.rotation.z;
     }
 }

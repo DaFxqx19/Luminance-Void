@@ -11,6 +11,8 @@ public static class Inventory
     public static int coinAmount = 100;
     private static int healthCost = 2;
 
+    public static float aimGrade = 0f;
+
     public static int GetHealth()
     { return health; }
 
