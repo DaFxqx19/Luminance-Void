@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -22,18 +24,27 @@ public class PlayerControls : MonoBehaviour
 
     [SerializeField] private GameObject aimObject;
 
+    [SerializeField] private Camera mainCamera;
+
+    private Vector3 musPosition = Vector3.zero;
+
+    //[SerializeField] private GameObject aimObject;
+
     private Vector2 moveDirection = Vector2.zero;
 
     private InputAction move;
     private InputAction fire;
     private InputAction jump;
     private InputAction buySmallHealth;
+    private InputAction look;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         rend = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
+
+        //musPosition = new Vector3(-Screen.width / 2, -Screen.height / 2, 0f);
     }
 
     private void Awake()
@@ -57,6 +68,11 @@ public class PlayerControls : MonoBehaviour
         buySmallHealth = playerControls.Player.SmallHeal;
         buySmallHealth.Enable();
         buySmallHealth.performed += BuySmallHealth;
+
+        look = playerControls.Player.Look;
+        look.Enable();
+
+        look.performed += Look;
     }
 
     private void OnDisable()
@@ -65,6 +81,7 @@ public class PlayerControls : MonoBehaviour
         fire.Disable();
         jump.Disable();
         buySmallHealth.Disable();
+        look.Disable();
     }
 
     private void Update()
@@ -73,6 +90,7 @@ public class PlayerControls : MonoBehaviour
         anim.SetBool("Running", rb.velocity.x != 0);
         anim.SetBool("Jumping", rb.velocity.y > 0.25);
         anim.SetBool("Falling", rb.velocity.y < -0.25);
+        //look.performed += Look;
     }
 
     private void FixedUpdate()
@@ -99,6 +117,67 @@ public class PlayerControls : MonoBehaviour
             // -1 jump available
             rb.velocity = new Vector2(rb.velocity.x, jumpSpeed * rb.gravityScale);
             Debug.Log("We Jumped");
+        }
+    }
+
+    private void Look(InputAction.CallbackContext context)
+    {
+        Vector3 mousePosition = look.ReadValue<Vector2>();
+        //Vector3 mousePosition = mainCamera.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+        musPosition += mousePosition;
+        Debug.Log("mouse position: " + mousePosition);
+        Debug.Log("aimObject: " + aimObject.transform.position);
+
+        bool isFollowing = true;
+
+        if (context.performed)
+        {
+            if (!isFollowing)
+            {
+                //Vector2 rotation = new Vector2(mousePosition.x - aimObject.transform.position.x, mousePosition.y - aimObject.transform.position.y);
+                Vector3 rotation = mousePosition - new Vector3(Screen.width / 2, Screen.height / 2);
+
+                rotation -= new Vector3(aimObject.transform.position.x * 100, aimObject.transform.position.y * 100);
+
+                //Vector3 rotation = new Vector3(mousePosition.x - transform.position.x, mousePosition.y - transform.position.y, 0f);
+
+                Debug.Log("rotation: " + rotation);
+
+                //Vector3 newRotation = rotation;
+
+                //Vector3 newRotation = new Vector3(Mathf.Cos(aimObject.transform.rotation.x) + mousePosition.x / Screen.width, Mathf.Sin(aimObject.transform.rotation.y) + mousePosition.y / Screen.height);
+
+                //float rotZ = Mathf.Atan2(newRotation.y, newRotation.x) * Mathf.Rad2Deg;
+
+                float rotZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
+
+                Debug.Log("rotZ in degrees: " + rotZ);
+
+                aimObject.transform.rotation = Quaternion.Euler(0, 0, rotZ);
+            }
+            else
+            {
+                //Vector2 rotation = new Vector2(mousePosition.x - aimObject.transform.position.x, mousePosition.y - aimObject.transform.position.y);
+                Vector3 rotation = mousePosition - new Vector3(Screen.width / 2, Screen.height / 2);
+
+                //rotation -= new Vector3(aimObject.transform.position.x * 100, aimObject.transform.position.y * 100);
+
+                //Vector3 rotation = new Vector3(mousePosition.x - transform.position.x, mousePosition.y - transform.position.y, 0f);
+
+                Debug.Log("rotation: " + rotation);
+
+                //Vector3 newRotation = rotation;
+
+                //Vector3 newRotation = new Vector3(Mathf.Cos(aimObject.transform.rotation.x) + mousePosition.x / Screen.width, Mathf.Sin(aimObject.transform.rotation.y) + mousePosition.y / Screen.height);
+
+                //float rotZ = Mathf.Atan2(newRotation.y, newRotation.x) * Mathf.Rad2Deg;
+
+                float rotZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
+
+                Debug.Log("rotZ in degrees: " + rotZ);
+
+                aimObject.transform.rotation = Quaternion.Euler(0, 0, rotZ);
+            }
         }
     }
 
@@ -130,8 +209,10 @@ public class PlayerControls : MonoBehaviour
         Inventory.BuyHealth();
     }
 
+    /*
     public float SetAimGrade()
     {
         return aimObject.transform.rotation.z;
     }
+    */
 }
