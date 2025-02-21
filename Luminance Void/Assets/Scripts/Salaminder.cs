@@ -12,6 +12,7 @@ public class NewBehaviourScript : MonoBehaviour
 
     private bool insideObject = false;
     private float insideTimer = 0f;
+    private float shootUpTimer = 0f;
 
     private float moveDirection = 1;
     [SerializeField] private int moveSpeed = 1;
@@ -28,7 +29,7 @@ public class NewBehaviourScript : MonoBehaviour
     {
         rb.velocity = new Vector2(moveDirection * moveSpeed, 0);
         anim.SetBool("isWalking", true);
-        if (insideObject == true && insideTimer < 5)
+        if (insideObject == true && insideTimer < 1)
         {
             insideTimer += Time.deltaTime;
         }
@@ -41,7 +42,8 @@ public class NewBehaviourScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Object") && insideObject == false)
+        shootUpTimer = 0f;
+        if (other.CompareTag("Object") && insideObject == false || other.CompareTag("Enemy") && insideObject == false)
         {
             moveDirection *= -1;
             insideObject = true;
@@ -53,4 +55,15 @@ public class NewBehaviourScript : MonoBehaviour
             Inventory.hurtPlayer(10);
         }
     }
+
+    /*
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        shootUpTimer += Time.deltaTime;
+        if (shootUpTimer > 2)
+        {
+            rb.velocity = new Vector2(0, 10);
+        }
+    }
+    */
 }
