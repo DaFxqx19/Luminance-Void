@@ -26,6 +26,8 @@ public class PlayerControls : MonoBehaviour
 
     [SerializeField] private Camera mainCamera;
 
+    [SerializeField] private GameObject referenceToUI;
+
     private Vector3 musPosition = Vector3.zero;
 
     //[SerializeField] private GameObject aimObject;
@@ -37,6 +39,7 @@ public class PlayerControls : MonoBehaviour
     private InputAction jump;
     private InputAction buySmallHealth;
     private InputAction look;
+    private InputAction settingsToggle;
 
     private void Start()
     {
@@ -71,8 +74,11 @@ public class PlayerControls : MonoBehaviour
 
         look = playerControls.Player.Look;
         look.Enable();
-
         look.performed += Look;
+
+        settingsToggle = playerControls.Player.SettingsToggle;
+        settingsToggle.Enable();
+        settingsToggle.performed += SettingsToggle;
     }
 
     private void OnDisable()
@@ -215,4 +221,9 @@ public class PlayerControls : MonoBehaviour
         return aimObject.transform.rotation.z;
     }
     */
+
+    private void SettingsToggle(InputAction.CallbackContext context)
+    {
+        referenceToUI.GetComponent<UI>().ToggleSettings();
+    }
 }

@@ -88,7 +88,7 @@ public static class Inventory
 
     public static void addAbility(string nameOfAbility)
     {
-        if (abilities != null || abilities.Count == 0)
+        if (abilities != null || abilities.Count != 0)
         {
             foreach (Ability ab in abilities)
             {
@@ -102,17 +102,17 @@ public static class Inventory
                     return;
                 }
             }
-            foreach (Ability ab in allAbilities)
+        }
+        foreach (Ability ab in allAbilities)
+        {
+            if (ab.nameOfAbility.Equals(nameOfAbility))
             {
-                if (ab.nameOfAbility.Equals(nameOfAbility))
+                if (coinAmount >= ab.cost)
                 {
-                    if (coinAmount >= ab.cost)
-                    {
-                        abilities.Add(ab);
-                        coinAmount -= ab.cost;
-                    }
-                    return;
+                    abilities.Add(ab);
+                    coinAmount -= ab.cost;
                 }
+                return;
             }
         }
     }

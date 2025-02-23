@@ -71,6 +71,15 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SettingsToggle"",
+                    ""type"": ""Button"",
+                    ""id"": ""1387aaea-da48-4149-b526-659c38cff412"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -324,6 +333,28 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""SmallHeal"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""693925c7-2ab1-49f6-b782-f86417c27530"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SettingsToggle"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fe0bba59-3376-494e-898c-208fd00d29df"",
+                    ""path"": ""<Gamepad>/select"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SettingsToggle"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -916,6 +947,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_Player_Fire = m_Player.FindAction("Fire", throwIfNotFound: true);
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         m_Player_SmallHeal = m_Player.FindAction("SmallHeal", throwIfNotFound: true);
+        m_Player_SettingsToggle = m_Player.FindAction("SettingsToggle", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -994,6 +1026,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Fire;
     private readonly InputAction m_Player_Jump;
     private readonly InputAction m_Player_SmallHeal;
+    private readonly InputAction m_Player_SettingsToggle;
     public struct PlayerActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -1003,6 +1036,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         public InputAction @Fire => m_Wrapper.m_Player_Fire;
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
         public InputAction @SmallHeal => m_Wrapper.m_Player_SmallHeal;
+        public InputAction @SettingsToggle => m_Wrapper.m_Player_SettingsToggle;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1027,6 +1061,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @SmallHeal.started += instance.OnSmallHeal;
             @SmallHeal.performed += instance.OnSmallHeal;
             @SmallHeal.canceled += instance.OnSmallHeal;
+            @SettingsToggle.started += instance.OnSettingsToggle;
+            @SettingsToggle.performed += instance.OnSettingsToggle;
+            @SettingsToggle.canceled += instance.OnSettingsToggle;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -1046,6 +1083,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @SmallHeal.started -= instance.OnSmallHeal;
             @SmallHeal.performed -= instance.OnSmallHeal;
             @SmallHeal.canceled -= instance.OnSmallHeal;
+            @SettingsToggle.started -= instance.OnSettingsToggle;
+            @SettingsToggle.performed -= instance.OnSettingsToggle;
+            @SettingsToggle.canceled -= instance.OnSettingsToggle;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -1233,6 +1273,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         void OnFire(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnSmallHeal(InputAction.CallbackContext context);
+        void OnSettingsToggle(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
