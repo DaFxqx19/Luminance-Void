@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UI : MonoBehaviour
 {
@@ -30,6 +31,12 @@ public class UI : MonoBehaviour
 
         hpObject.GetComponent<TMPro.TextMeshProUGUI>().text = "hp: " + Inventory.GetHealth(true);
         coinObject.GetComponent<TMPro.TextMeshProUGUI>().text = "$: " + Inventory.GetCoins(true);
+    }
+
+    public void ExitGame()
+    {
+        ToggleSettings();
+        SceneManager.LoadScene(0);
     }
 
     public void ToggleSettings()
