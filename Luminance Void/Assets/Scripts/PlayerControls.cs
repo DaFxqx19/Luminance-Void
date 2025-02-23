@@ -30,9 +30,9 @@ public class PlayerControls : MonoBehaviour
 
     private Vector3 musPosition = Vector3.zero;
 
-    //[SerializeField] private GameObject aimObject;
-
     private Vector2 moveDirection = Vector2.zero;
+
+    public int jumpsDone = 0;
 
     private InputAction move;
     private InputAction fire;
@@ -123,6 +123,7 @@ public class PlayerControls : MonoBehaviour
             // -1 jump available
             rb.velocity = new Vector2(rb.velocity.x, jumpSpeed * rb.gravityScale);
             Debug.Log("We Jumped");
+            jumpsDone++;
         }
     }
 
@@ -203,7 +204,11 @@ public class PlayerControls : MonoBehaviour
     {
         // x>0 amount of jumps available
 
-        return true;
+        if (Inventory.GetJumpsAvailable() - jumpsDone > 0)
+        {
+            return true;
+        }
+        return false;
     }
 
     private void JumpRenewal()

@@ -8,6 +8,7 @@ public class UI : MonoBehaviour
 {
     [SerializeField] private GameObject hpObject;
     [SerializeField] private GameObject coinObject;
+    [SerializeField] private GameObject doubleJumpObject;
 
     [SerializeField] private GameObject settingsObject;
     [SerializeField] private GameObject hudObject;
@@ -31,12 +32,18 @@ public class UI : MonoBehaviour
 
         hpObject.GetComponent<TMPro.TextMeshProUGUI>().text = "hp: " + Inventory.GetHealth(true);
         coinObject.GetComponent<TMPro.TextMeshProUGUI>().text = "$: " + Inventory.GetCoins(true);
+        doubleJumpObject.GetComponent<TMPro.TextMeshProUGUI>().text = "Double Jumps: " + (Inventory.GetJumpsAvailable() - 1).ToString();
     }
 
     public void ExitGame()
     {
         ToggleSettings();
         SceneManager.LoadScene(0);
+    }
+
+    public void PurchaseJumps()
+    {
+        Inventory.AddAbility("Double Jump");
     }
 
     public void ToggleSettings()

@@ -75,7 +75,7 @@ public static class Inventory
         health = amount;
     }
 
-    public static void hurtPlayer(int amount)
+    public static void HurtPlayer(int amount)
     {
         health -= amount;
         if (health <= 0)
@@ -86,7 +86,16 @@ public static class Inventory
         }
     }
 
-    public static void addAbility(string nameOfAbility)
+    public static int GetJumpsAvailable()
+    {
+        if (abilities.Count != 0)
+        {
+            return abilities.Find(i => i.nameOfAbility == "Double Jump").maxAmount + 1;
+        }
+        return 1;
+    }
+
+    public static void AddAbility(string nameOfAbility)
     {
         if (abilities != null || abilities.Count != 0)
         {

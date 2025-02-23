@@ -52,7 +52,7 @@ public class NewBehaviourScript : MonoBehaviour
         else if (other.CompareTag("Player"))
         {
             //Hurt player
-            Inventory.hurtPlayer(10);
+            Inventory.HurtPlayer(10);
         }
     }
 
