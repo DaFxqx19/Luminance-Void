@@ -80,6 +80,15 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ShopToggle"",
+                    ""type"": ""Button"",
+                    ""id"": ""3add069f-b9e0-4f82-bd00-71885417c900"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -355,6 +364,17 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""SettingsToggle"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7d873b9d-28ba-440f-a796-d8869c91945c"",
+                    ""path"": ""<Keyboard>/b"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""ShopToggle"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -948,6 +968,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         m_Player_SmallHeal = m_Player.FindAction("SmallHeal", throwIfNotFound: true);
         m_Player_SettingsToggle = m_Player.FindAction("SettingsToggle", throwIfNotFound: true);
+        m_Player_ShopToggle = m_Player.FindAction("ShopToggle", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1027,6 +1048,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Jump;
     private readonly InputAction m_Player_SmallHeal;
     private readonly InputAction m_Player_SettingsToggle;
+    private readonly InputAction m_Player_ShopToggle;
     public struct PlayerActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -1037,6 +1059,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
         public InputAction @SmallHeal => m_Wrapper.m_Player_SmallHeal;
         public InputAction @SettingsToggle => m_Wrapper.m_Player_SettingsToggle;
+        public InputAction @ShopToggle => m_Wrapper.m_Player_ShopToggle;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1064,6 +1087,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @SettingsToggle.started += instance.OnSettingsToggle;
             @SettingsToggle.performed += instance.OnSettingsToggle;
             @SettingsToggle.canceled += instance.OnSettingsToggle;
+            @ShopToggle.started += instance.OnShopToggle;
+            @ShopToggle.performed += instance.OnShopToggle;
+            @ShopToggle.canceled += instance.OnShopToggle;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -1086,6 +1112,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @SettingsToggle.started -= instance.OnSettingsToggle;
             @SettingsToggle.performed -= instance.OnSettingsToggle;
             @SettingsToggle.canceled -= instance.OnSettingsToggle;
+            @ShopToggle.started -= instance.OnShopToggle;
+            @ShopToggle.performed -= instance.OnShopToggle;
+            @ShopToggle.canceled -= instance.OnShopToggle;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -1274,6 +1303,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         void OnJump(InputAction.CallbackContext context);
         void OnSmallHeal(InputAction.CallbackContext context);
         void OnSettingsToggle(InputAction.CallbackContext context);
+        void OnShopToggle(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

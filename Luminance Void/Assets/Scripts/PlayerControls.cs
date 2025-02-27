@@ -40,6 +40,7 @@ public class PlayerControls : MonoBehaviour
     private InputAction buySmallHealth;
     private InputAction look;
     private InputAction settingsToggle;
+    private InputAction shopToggle;
 
     private void Start()
     {
@@ -79,6 +80,10 @@ public class PlayerControls : MonoBehaviour
         settingsToggle = playerControls.Player.SettingsToggle;
         settingsToggle.Enable();
         settingsToggle.performed += SettingsToggle;
+
+        shopToggle = playerControls.Player.ShopToggle;
+        shopToggle.Enable();
+        shopToggle.performed += ShopToggle;
     }
 
     private void OnDisable()
@@ -211,10 +216,6 @@ public class PlayerControls : MonoBehaviour
         return false;
     }
 
-    private void JumpRenewal()
-    {
-    }
-
     private void BuySmallHealth(InputAction.CallbackContext context)
     {
         Inventory.BuyHealth();
@@ -230,5 +231,10 @@ public class PlayerControls : MonoBehaviour
     private void SettingsToggle(InputAction.CallbackContext context)
     {
         referenceToUI.GetComponent<UI>().ToggleSettings();
+    }
+
+    private void ShopToggle(InputAction.CallbackContext context)
+    {
+        referenceToUI.GetComponent<UI>().ToggleShop();
     }
 }
