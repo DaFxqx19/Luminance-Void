@@ -79,5 +79,25 @@ public class UI : MonoBehaviour
 
     public void ToggleShop()
     {
+        if (!UIStatus.Equals("settings"))
+        {
+            if (UIStatus.Equals("hud"))
+            {
+                // Open Shop
+                hudObject.gameObject.SetActive(true);
+                shopObject.gameObject.SetActive(true);
+                UIStatus = "shop";
+                Debug.Log("Opens shop");
+            }
+            else
+            {
+                // Close shop
+                hudObject.gameObject.SetActive(true);
+                shopObject.gameObject.SetActive(false);
+                UIStatus = "hud";
+                Debug.Log("Closes shop");
+            }
+        }
+        // if in setting then do nothing >:)
     }
 }

@@ -12,8 +12,6 @@ public class NewBehaviourScript : MonoBehaviour
 
     private bool insideObject = false;
     private float insideTimer = 0f;
-    private float shootUpTimer = 0f;
-
     private float moveDirection = 1;
     [SerializeField] private int moveSpeed = 1;
 
@@ -42,7 +40,6 @@ public class NewBehaviourScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        shootUpTimer = 0f;
         if (other.CompareTag("Object") && insideObject == false || other.CompareTag("Enemy") && insideObject == false)
         {
             moveDirection *= -1;

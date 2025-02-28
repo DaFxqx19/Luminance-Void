@@ -137,8 +137,8 @@ public class PlayerControls : MonoBehaviour
         Vector3 mousePosition = look.ReadValue<Vector2>();
         //Vector3 mousePosition = mainCamera.ScreenToWorldPoint(Mouse.current.position.ReadValue());
         musPosition += mousePosition;
-        Debug.Log("mouse position: " + mousePosition);
-        Debug.Log("aimObject: " + aimObject.transform.position);
+        //Debug.Log("mouse position: " + mousePosition);
+        //Debug.Log("aimObject: " + aimObject.transform.position);
 
         bool isFollowing = true;
 
@@ -153,7 +153,7 @@ public class PlayerControls : MonoBehaviour
 
                 //Vector3 rotation = new Vector3(mousePosition.x - transform.position.x, mousePosition.y - transform.position.y, 0f);
 
-                Debug.Log("rotation: " + rotation);
+                //Debug.Log("rotation: " + rotation);
 
                 //Vector3 newRotation = rotation;
 
@@ -163,7 +163,7 @@ public class PlayerControls : MonoBehaviour
 
                 float rotZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
 
-                Debug.Log("rotZ in degrees: " + rotZ);
+                //Debug.Log("rotZ in degrees: " + rotZ);
 
                 aimObject.transform.rotation = Quaternion.Euler(0, 0, rotZ);
             }
@@ -176,7 +176,7 @@ public class PlayerControls : MonoBehaviour
 
                 //Vector3 rotation = new Vector3(mousePosition.x - transform.position.x, mousePosition.y - transform.position.y, 0f);
 
-                Debug.Log("rotation: " + rotation);
+                //Debug.Log("rotation: " + rotation);
 
                 //Vector3 newRotation = rotation;
 
@@ -186,7 +186,7 @@ public class PlayerControls : MonoBehaviour
 
                 float rotZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
 
-                Debug.Log("rotZ in degrees: " + rotZ);
+                //Debug.Log("rotZ in degrees: " + rotZ);
 
                 aimObject.transform.rotation = Quaternion.Euler(0, 0, rotZ);
             }
