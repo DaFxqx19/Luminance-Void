@@ -10,7 +10,8 @@ public static class Inventory
 
     public static int maxHealth = 200;
     public static int coinAmount = 100;
-    private static int healthCost = 2;
+    public static int healthBuyAmount = 100;
+    public static int healthCost = 2;
 
     public static float aimGrade = 0f;
 
@@ -48,14 +49,14 @@ public static class Inventory
         coinAmount = amount;
     }
 
-    public static void BuyHealth()
+    public static void SetHealthBuyAmount(int amount)
     {
-        BuyHealth(20, false);
+        healthBuyAmount = amount;
     }
 
-    public static void BuyHealth(int amount)
+    public static void BuyHealth()
     {
-        BuyHealth(amount, false);
+        BuyHealth(healthBuyAmount, false);
     }
 
     public static void BuyHealth(int amount, bool revival)

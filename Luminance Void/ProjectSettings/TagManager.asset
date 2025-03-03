@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - FreeCollider
   - Item
+  - HPCostSlider
   layers:
   - Default
   - TransparentFX

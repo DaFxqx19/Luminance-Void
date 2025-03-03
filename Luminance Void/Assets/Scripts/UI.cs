@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class UI : MonoBehaviour
 {
@@ -13,6 +14,11 @@ public class UI : MonoBehaviour
     [SerializeField] private GameObject settingsObject;
     [SerializeField] private GameObject hudObject;
     [SerializeField] private GameObject shopObject;
+
+    [SerializeField] private GameObject hpCost;
+    [SerializeField] private GameObject hpBuyAmount;
+
+    [SerializeField] private GameObject healthSlider;
 
     public string UIStatus;
     private string lastStatus;
@@ -33,6 +39,10 @@ public class UI : MonoBehaviour
         hpObject.GetComponent<TMPro.TextMeshProUGUI>().text = "hp: " + Inventory.GetHealth(true);
         coinObject.GetComponent<TMPro.TextMeshProUGUI>().text = "$: " + Inventory.GetCoins(true);
         doubleJumpObject.GetComponent<TMPro.TextMeshProUGUI>().text = "Double Jumps: " + (Inventory.GetJumpsAvailable() - 1).ToString();
+        hpCost.GetComponent<TMPro.TextMeshProUGUI>().text = ("Cost: " + (Inventory.healthBuyAmount * Inventory.healthCost).ToString());
+        hpBuyAmount.GetComponent<TMPro.TextMeshProUGUI>().text = ("Amount: " + Inventory.healthBuyAmount.ToString());
+        float amount = healthSlider.GetComponent<Slider>().value;
+        Inventory.SetHealthBuyAmount((int)amount);
     }
 
     public void ExitGame()
