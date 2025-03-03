@@ -6,6 +6,8 @@ public class NewBehaviourScript : MonoBehaviour
 {
     [SerializeField] private GameObject colliderObject;
 
+    public bool willMove = true;
+
     private Rigidbody2D rb;
     private SpriteRenderer rend;
     private Animator anim;
@@ -25,22 +27,25 @@ public class NewBehaviourScript : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        rb.velocity = new Vector2(moveDirection * moveSpeed, 0);
-        anim.SetBool("isWalking", true);
-        if (insideObject == true && insideTimer < 1)
+        if (willMove)
         {
-            insideTimer += Time.deltaTime;
-        }
-        else
-        {
-            insideObject = false;
-            insideTimer = 0;
+            rb.velocity = new Vector2(moveDirection * moveSpeed, 0);
+            anim.SetBool("isWalking", true);
+            if (insideObject == true && insideTimer < 1)
+            {
+                insideTimer += Time.deltaTime;
+            }
+            else
+            {
+                insideObject = false;
+                insideTimer = 0;
+            }
         }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Object") && insideObject == false || other.CompareTag("Enemy") && insideObject == false)
+        if (other.CompareTag("Object") && insideObject == false || other.CompareTag("Enemy") && insideObject == false || other.CompareTag("Ground"))
         {
             moveDirection *= -1;
             insideObject = true;

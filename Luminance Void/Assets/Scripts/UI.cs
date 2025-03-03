@@ -15,8 +15,10 @@ public class UI : MonoBehaviour
     [SerializeField] private GameObject hudObject;
     [SerializeField] private GameObject shopObject;
 
-    [SerializeField] private GameObject hpCost;
-    [SerializeField] private GameObject hpBuyAmount;
+    [SerializeField] private GameObject hpCostObject;
+    [SerializeField] private GameObject hpBuyAmountObject;
+
+    [SerializeField] private GameObject doubleJumpCostObject;
 
     [SerializeField] private GameObject healthSlider;
 
@@ -36,13 +38,19 @@ public class UI : MonoBehaviour
     {
         //hpObject.GetComponent<TMPro.TextMeshProUGUI>().text = "Hello World!";
 
+        // Normal GUI Stats stuff
         hpObject.GetComponent<TMPro.TextMeshProUGUI>().text = "hp: " + Inventory.GetHealth(true);
         coinObject.GetComponent<TMPro.TextMeshProUGUI>().text = "$: " + Inventory.GetCoins(true);
         doubleJumpObject.GetComponent<TMPro.TextMeshProUGUI>().text = "Double Jumps: " + (Inventory.GetJumpsAvailable() - 1).ToString();
-        hpCost.GetComponent<TMPro.TextMeshProUGUI>().text = ("Cost: " + (Inventory.healthBuyAmount * Inventory.healthCost).ToString());
-        hpBuyAmount.GetComponent<TMPro.TextMeshProUGUI>().text = ("Amount: " + Inventory.healthBuyAmount.ToString());
+
+        // Health Slider
+        hpCostObject.GetComponent<TMPro.TextMeshProUGUI>().text = ("Cost: " + (Inventory.healthBuyAmount * Inventory.healthCost).ToString());
+        hpBuyAmountObject.GetComponent<TMPro.TextMeshProUGUI>().text = ("Amount: " + Inventory.healthBuyAmount.ToString());
         float amount = healthSlider.GetComponent<Slider>().value;
         Inventory.SetHealthBuyAmount((int)amount);
+
+        // Double Jump Cost
+        doubleJumpCostObject.GetComponent<TMPro.TextMeshProUGUI>().text = ("Cost: " + Inventory.GetCostOfAbility("Double Jump"));
     }
 
     public void ExitGame()

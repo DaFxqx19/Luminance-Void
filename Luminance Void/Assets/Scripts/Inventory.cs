@@ -9,7 +9,7 @@ public static class Inventory
     public static int health = 100;
 
     public static int maxHealth = 200;
-    public static int coinAmount = 100;
+    public static int coinAmount = 0;
     public static int healthBuyAmount = 100;
     public static int healthCost = 2;
 
@@ -19,7 +19,7 @@ public static class Inventory
 
     public static List<Ability> allAbilities = new List<Ability>()
     {
-        new Ability("Double Jump", "Lets You Double Jump :)", 20, 0, 1),
+        new Ability("Double Jump", "Lets You Double Jump :)", 50, 0, 1),
         new Ability("Flamethrower", "Flame on!", 500, 0, 200),
         new Ability("Grappling Hook", "Just like in the movies", 200, 0, 1),
     };
@@ -100,14 +100,16 @@ public static class Inventory
     {
         if (abilities != null || abilities.Count != 0)
         {
-            foreach (Ability ab in abilities)
+            foreach (Ability ab in allAbilities)
             {
                 if (ab.nameOfAbility.Equals(nameOfAbility))
                 {
                     if (ab.nameOfAbility == "Double Jump" && coinAmount >= ab.cost)
                     {
                         ab.maxAmount += 1;
+                        ab.cost = ab.maxAmount * ab.cost;
                         coinAmount -= ab.cost;
+                        abilities[abilities.IndexOf(ab)] = ab;
                     }
                     return;
                 }
@@ -125,5 +127,18 @@ public static class Inventory
                 return;
             }
         }
+    }
+
+    public static int GetCostOfAbility(string nameOfRelevantAbility)
+    {
+        foreach (Ability ab in abilities)
+        {
+            if (ab.nameOfAbility.Equals(nameOfRelevantAbility))
+            {
+                return ab.cost;
+            }
+        }
+
+        return -1;
     }
 }

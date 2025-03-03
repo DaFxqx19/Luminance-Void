@@ -19,7 +19,7 @@ public class ItemCollecion : MonoBehaviour
         if (Mathf.Abs(PlayerControls.FindFirstObjectByType<PlayerControls>().transform.position.x - transform.position.x) < 0.25 &&
             Mathf.Abs(PlayerControls.FindFirstObjectByType<PlayerControls>().transform.position.y - transform.position.y) < 0.25)
         {
-            Inventory.AddCoins(50);
+            Inventory.AddCoins(10);
             Destroy(this.gameObject);
         }
     }

@@ -9,8 +9,8 @@ public class Spawn : MonoBehaviour
     private void Awake()
     {
         SpawnFunction();
-        Inventory.SetCoins(1000);
-        Inventory.SetHealth(100);
+        Inventory.SetCoins(100);
+        Inventory.SetHealth(200);
     }
 
     public void SpawnFunction()
