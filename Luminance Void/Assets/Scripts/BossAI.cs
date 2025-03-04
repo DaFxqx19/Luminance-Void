@@ -1,9 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class BossAI : MonoBehaviour
 {
+    [SerializeField] private GameObject laserObject;
+    [SerializeField] private GameObject playerObject;
+
     private float minTimer = 3;
     private float maxTimer = 5;
 
@@ -47,5 +51,19 @@ public class BossAI : MonoBehaviour
     {
         Debug.Log("The Boss Attacked now!");
         isAttacking = false;
+
+        Vector3 playerPosition = playerObject.transform.position;
+
+        float rotZ = Mathf.Atan2(playerPosition.x - transform.position.x, playerPosition.y - transform.position.y) * Mathf.Rad2Deg;
+
+        // float rotZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
+
+        Vector3 relativePos = playerPosition - transform.position;
+
+        // the second argument, upwards, defaults to Vector3.up
+        Quaternion rotation = Quaternion.LookRotation(relativePos, Vector3.right);
+        // transform.rotation = rotation;
+
+        Instantiate(laserObject, transform.position, rotation);
     }
 }
