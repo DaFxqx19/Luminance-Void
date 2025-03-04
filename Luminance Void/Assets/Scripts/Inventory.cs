@@ -100,16 +100,16 @@ public static class Inventory
     {
         if (abilities != null || abilities.Count != 0)
         {
-            foreach (Ability ab in allAbilities)
+            foreach (Ability ab in abilities)
             {
                 if (ab.nameOfAbility.Equals(nameOfAbility))
                 {
-                    if (ab.nameOfAbility == "Double Jump" && coinAmount >= ab.cost)
+                    if (ab.nameOfAbility == "Double Jump" && coinAmount >= ab.cost * (ab.maxAmount + 1))
                     {
                         ab.maxAmount += 1;
                         ab.cost = ab.maxAmount * ab.cost;
+                        allAbilities.Find(i => i.nameOfAbility.Equals(nameOfAbility)).cost = ab.cost;
                         coinAmount -= ab.cost;
-                        abilities[abilities.IndexOf(ab)] = ab;
                     }
                     return;
                 }
@@ -119,10 +119,10 @@ public static class Inventory
         {
             if (ab.nameOfAbility.Equals(nameOfAbility))
             {
-                if (coinAmount >= ab.cost)
+                if (coinAmount >= ab.cost * (ab.maxAmount + 1))
                 {
                     abilities.Add(ab);
-                    coinAmount -= ab.cost;
+                    coinAmount -= ab.cost * (ab.maxAmount + 1);
                 }
                 return;
             }
@@ -131,11 +131,11 @@ public static class Inventory
 
     public static int GetCostOfAbility(string nameOfRelevantAbility)
     {
-        foreach (Ability ab in abilities)
+        foreach (Ability ab in allAbilities)
         {
             if (ab.nameOfAbility.Equals(nameOfRelevantAbility))
             {
-                return ab.cost;
+                return ab.cost * (ab.maxAmount + 1);
             }
         }
 
