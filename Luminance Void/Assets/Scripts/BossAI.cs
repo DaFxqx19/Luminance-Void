@@ -27,11 +27,11 @@ public class BossAI : MonoBehaviour
 
             timer += Time.deltaTime;
             // start attack
-            if (timer >= 3)
+            if (timer >= 5)
             {
                 isAttacking = true;
                 timer = 0;
-                ChargeUp();
+                Attack();
             }
         }
     }
