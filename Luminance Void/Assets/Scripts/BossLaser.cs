@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BossLaser : MonoBehaviour
 {
+    public float laserSpeed = 10;
     private Rigidbody2D rb;
 
     private void Start()
@@ -13,6 +14,6 @@ public class BossLaser : MonoBehaviour
 
     private void Update()
     {
-        rb.velocity = transform.forward * 10;
+        rb.velocity = transform.forward * laserSpeed;
     }
 }

@@ -10,6 +10,7 @@ TagManager:
   - FreeCollider
   - Item
   - HPCostSlider
+  - PlayerAttack
   layers:
   - Default
   - TransparentFX
