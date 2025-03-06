@@ -28,6 +28,8 @@ public class PlayerControls : MonoBehaviour
 
     [SerializeField] private GameObject referenceToUI;
 
+    [SerializeField] private GameObject laserObject;
+
     private Vector3 musPosition = Vector3.zero;
 
     private Vector2 moveDirection = Vector2.zero;
@@ -42,8 +44,16 @@ public class PlayerControls : MonoBehaviour
     private InputAction settingsToggle;
     private InputAction shopToggle;
 
+    private Camera cam;
+
+    private Quaternion m_MyQuaternion;
+
     private void Start()
     {
+        m_MyQuaternion = new Quaternion();
+
+        cam = Camera.main;
+
         rb = GetComponent<Rigidbody2D>();
         rend = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
@@ -117,6 +127,8 @@ public class PlayerControls : MonoBehaviour
 
     private void Fire(InputAction.CallbackContext context)
     {
+        Instantiate(laserObject, aimObject.transform.position, aimObject.transform.rotation);
+
         //Inventory.BuyHealth();
         Debug.Log("We Fired");
     }
@@ -135,6 +147,9 @@ public class PlayerControls : MonoBehaviour
     private void Look(InputAction.CallbackContext context)
     {
         Vector3 mousePosition = look.ReadValue<Vector2>();
+
+        Vector3 screenSize = new Vector3(Camera.main.pixelWidth, Camera.main.pixelHeight);
+
         //Vector3 mousePosition = mainCamera.ScreenToWorldPoint(Mouse.current.position.ReadValue());
         //musPosition += mousePosition;
         //Debug.Log("mouse position: " + mousePosition);
@@ -187,31 +202,11 @@ public class PlayerControls : MonoBehaviour
             }
             else
             {
-                /*
-                //Vector2 rotation = new Vector2(mousePosition.x - aimObject.transform.position.x, mousePosition.y - aimObject.transform.position.y);
-                Vector3 rotation = mousePosition - new Vector3(Screen.width / 2, Screen.height / 2);
-
-                //rotation -= new Vector3(aimObject.transform.position.x * 100, aimObject.transform.position.y * 100);
-
-                //Vector3 rotation = new Vector3(mousePosition.x - transform.position.x, mousePosition.y - transform.position.y, 0f);
-
-                //Debug.Log("rotation: " + rotation);
-
-                //Vector3 newRotation = rotation;
-
-                //Vector3 newRotation = new Vector3(Mathf.Cos(aimObject.transform.rotation.x) + mousePosition.x / Screen.width, Mathf.Sin(aimObject.transform.rotation.y) + mousePosition.y / Screen.height);
-
-                //float rotZ = Mathf.Atan2(newRotation.y, newRotation.x) * Mathf.Rad2Deg;
+                Vector3 rotation = mousePosition - new Vector3(mainCamera.pixelWidth / 2, mainCamera.pixelHeight / 2);
 
                 float rotZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
-
-                //Debug.Log("rotZ in degrees: " + rotZ);
-
+                //
                 aimObject.transform.rotation = Quaternion.Euler(0, 0, rotZ);
-
-                */
-
-                mousePosition -= new Vector3(Screen.width / 2, Screen.height / 2);
             }
         }
     }
