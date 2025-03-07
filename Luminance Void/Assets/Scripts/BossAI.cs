@@ -1,13 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using static UnityEngine.GraphicsBuffer;
 
 public class BossAI : MonoBehaviour
 {
+    [SerializeField] private GameObject coinSpawner;
+    [SerializeField] private GameObject switchSceneObject;
+
     [SerializeField] private GameObject laserObject;
     [SerializeField] private GameObject laserShowObject;
     [SerializeField] private GameObject playerObject;
+
+    [SerializeField] private GameObject healthUIObject;
+    [SerializeField] private GameObject healthTextObject;
+    [SerializeField] private GameObject healthSliderObject;
+
+    private bool isActive = false;
 
     // for future random timing
     private float minTimer = 3;
@@ -29,6 +39,9 @@ public class BossAI : MonoBehaviour
     private void Start()
     {
         bossHP = bossMaxHP;
+        healthSliderObject.GetComponent<Slider>().maxValue = bossMaxHP;
+
+        healthUIObject.gameObject.SetActive(false);
     }
 
     private void Update()
@@ -48,6 +61,26 @@ public class BossAI : MonoBehaviour
                 StartCoroutine(StartCharge());
             }
         }
+        healthSliderObject.GetComponent<Slider>().value = bossHP;
+        healthTextObject.GetComponent<TMPro.TextMeshProUGUI>().text = ("Super Dangerrous quantum AI: " + bossHP).ToString();
+
+        if (bossHP <= 0)
+        {
+            KillBoss();
+        }
+    }
+
+    private void KillBoss()
+    {
+        for (int i = 0; i < 5; i++)
+        {
+            Vector3 change = new Vector3(Random.Range(-1f, 1f), Random.Range(0.5f, 2f));
+
+            Instantiate(coinSpawner, transform.position + change, Quaternion.identity);
+        }
+        Debug.Log("You Killed Me! ARGH");
+        Instantiate(switchSceneObject);
+        Destroy(gameObject);
     }
 
     private IEnumerator StartCharge()
@@ -89,9 +122,16 @@ public class BossAI : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("PlayerAttack"))
+        if (collision.CompareTag("PlayerAttack") && isActive)
         {
+            bossHP -= 25;
         }
+    }
+
+    public void StartBossUI()
+    {
+        isActive = true;
+        healthUIObject.gameObject.SetActive(true);
     }
 
     /*

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 85448100755206228}
   - component: {fileID: 1420084026092288051}
   - component: {fileID: 3146058132941107781}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: HurtBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 3248175073740392991}
   - component: {fileID: 6129276150154788003}
   - component: {fileID: 2247196017192240855}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SalaminderCollider
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -227,9 +227,9 @@ GameObject:
   - component: {fileID: 4427438586953819931}
   - component: {fileID: 7292584146350861145}
   - component: {fileID: 539095606751525586}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Salaminder
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -337,6 +337,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colliderObject: {fileID: 6530833729948040962}
+  willMove: 0
   moveSpeed: 1
 --- !u!50 &7292584146350861145
 Rigidbody2D:

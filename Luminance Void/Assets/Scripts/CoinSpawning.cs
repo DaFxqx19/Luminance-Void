@@ -22,7 +22,8 @@ public class CoinSpawning : MonoBehaviour
     {
         for (int i = 0; i < coinsToSpawn; i++)
         {
-            Vector3 change = new Vector3(Random.Range(-2f, 2f), Random.Range(0.5f, 2f));
+            Vector3 change = new Vector3(Random.Range(-.5f, .5f), Random.Range(0.5f, 2f));
+            //Vector3 change = new Vector3(0, .5f);
 
             Instantiate(coinObject, transform.position + change, Quaternion.identity);
         }

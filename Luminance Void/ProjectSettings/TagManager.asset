@@ -11,6 +11,7 @@ TagManager:
   - Item
   - HPCostSlider
   - PlayerAttack
+  - BossAttack
   layers:
   - Default
   - TransparentFX
