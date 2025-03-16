@@ -83,7 +83,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce4807dffd0d05e44a6a9c3fbb53cb78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coinSpawner: {fileID: 0}
+  coinSpawner: {fileID: 3586173279910617788, guid: 083147a9d3ade064586cb8308f44db4b, type: 3}
   switchSceneObject: {fileID: 8208629019388741963, guid: 9c589ca529016014cb70931679530465, type: 3}
   laserObject: {fileID: 5229986581353323577, guid: dc92beb9036bf704bb8f73e390bbcdcc, type: 3}
   laserShowObject: {fileID: 3453298064067654257, guid: 9a2e2246330877940bd1e6120ec9b7f0, type: 3}

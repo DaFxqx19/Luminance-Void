@@ -27,10 +27,6 @@ public class Killzone : MonoBehaviour
                     playerSpawner.GetComponent<Spawn>().SpawnFunction();
                 }
             }
-            else
-            {
-                bossObject.GetComponent<BossAI>().StartBossUI();
-            }
         }
     }
 

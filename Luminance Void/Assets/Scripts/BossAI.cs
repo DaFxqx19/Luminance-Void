@@ -13,8 +13,9 @@ public class BossAI : MonoBehaviour
     [SerializeField] private GameObject laserShowObject;
     [SerializeField] private GameObject playerObject;
 
-    [SerializeField] private GameObject healthUIObject;
+    //[SerializeField] private GameObject healthUIObject;
     [SerializeField] private GameObject healthTextObject;
+
     [SerializeField] private GameObject healthSliderObject;
 
     private bool isActive = false;
@@ -41,7 +42,7 @@ public class BossAI : MonoBehaviour
         bossHP = bossMaxHP;
         healthSliderObject.GetComponent<Slider>().maxValue = bossMaxHP;
 
-        healthUIObject.gameObject.SetActive(false);
+        //healthUIObject.gameObject.SetActive(false);
     }
 
     private void Update()
@@ -128,11 +129,13 @@ public class BossAI : MonoBehaviour
         }
     }
 
+    /*
     public void StartBossUI()
     {
         isActive = true;
         healthUIObject.gameObject.SetActive(true);
-    }
+    }\
+    */
 
     /*
     private void Attack(Quaternion rotation)

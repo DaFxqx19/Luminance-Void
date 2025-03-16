@@ -8,6 +8,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using static TMPro.SpriteAssetUtilities.TexturePacker_JsonArray;
 
 public class PlayerControls : MonoBehaviour
 {
@@ -168,6 +169,7 @@ public class PlayerControls : MonoBehaviour
 
                 rotation -= new Vector3(aimObject.transform.position.x * 100, aimObject.transform.position.y * 100);
                 */
+                /*
                 mousePosition -= new Vector3(Screen.width / 2, Screen.height / 2);
                 //mousePosition -= aimObject.transform.position;
                 //Vector3 rotation = new Vector3(mousePosition.x - transform.position.x, mousePosition.y - transform.position.y, 0f);
@@ -199,13 +201,19 @@ public class PlayerControls : MonoBehaviour
                 aimObject.transform.rotation = rotation;
 
                 //aimObject.transform.rotation = Quaternion.Euler(0, 0, rotZ);
+            */
             }
             else
             {
-                Vector3 rotation = mousePosition - new Vector3(mainCamera.pixelWidth / 2, mainCamera.pixelHeight / 2);
+                //Vector3 rotation = mousePosition - new Vector3(mainCamera.pixelWidth / 2, mainCamera.pixelHeight / 2);
+
+                Vector3 rotation = mousePosition - new Vector3(Camera.main.pixelWidth / 2, Camera.main.pixelHeight / 2);
 
                 float rotZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
+
+                //rotZ = Mathf.Atan2(rotation.y, rotation.x);
                 //
+                //aimObject.transform.rotation = Quaternion.FromToRotation(aimObject.transform.position, rotation);
                 aimObject.transform.rotation = Quaternion.Euler(0, 0, rotZ);
             }
         }
