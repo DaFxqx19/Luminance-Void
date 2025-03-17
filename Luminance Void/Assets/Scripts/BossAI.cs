@@ -18,12 +18,14 @@ public class BossAI : MonoBehaviour
 
     [SerializeField] private GameObject healthSliderObject;
 
-    private bool isActive = false;
+    public bool isActive = false;
 
     // for future random timing
+    /*
     private float minTimer = 3;
 
     private float maxTimer = 5;
+    */
 
     // Boss stats >:)
 

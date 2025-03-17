@@ -19,7 +19,7 @@ public class PlayerLaser : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        rb.velocity = transform.right * 50;
+        rb.velocity = transform.right * Inventory.laserSpeed;
         if (alreadyHit)
         {
             delay += Time.deltaTime;

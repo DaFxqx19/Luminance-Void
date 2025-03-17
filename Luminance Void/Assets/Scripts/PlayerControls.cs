@@ -21,6 +21,8 @@ public class PlayerControls : MonoBehaviour
     //[SerializeField] private float moveVerticalSpeed = 1.0f;
     [SerializeField] private float jumpSpeed = 1.0f;
 
+    [SerializeField] private float laserSpeed = 10f;
+
     [SerializeField] private PlayerInputActions playerControls;
 
     [SerializeField] private GameObject aimObject;
@@ -47,11 +49,11 @@ public class PlayerControls : MonoBehaviour
 
     private Camera cam;
 
-    private Quaternion m_MyQuaternion;
+    //private Quaternion m_MyQuaternion;
 
     private void Start()
     {
-        m_MyQuaternion = new Quaternion();
+        //m_MyQuaternion = new Quaternion();
 
         cam = Camera.main;
 
@@ -113,6 +115,7 @@ public class PlayerControls : MonoBehaviour
         anim.SetBool("Jumping", rb.velocity.y > 0.25);
         anim.SetBool("Falling", rb.velocity.y < -0.25);
         //look.performed += Look;
+        Inventory.laserSpeed = laserSpeed;
     }
 
     private void FixedUpdate()

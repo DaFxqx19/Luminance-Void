@@ -13,6 +13,8 @@ public static class Inventory
     public static int healthBuyAmount = 100;
     public static int healthCost = 2;
 
+    public static float laserSpeed = 10;
+
     public static float aimGrade = 0f;
 
     public static List<Ability> abilities = new List<Ability>();

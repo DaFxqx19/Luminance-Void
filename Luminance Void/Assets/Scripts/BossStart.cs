@@ -18,6 +18,7 @@ public class BossStart : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             //bossObject.GetComponent<BossAI>().StartBossUI();
+            bossObject.GetComponent<BossAI>().isActive = true;
             bossObject.SetActive(true);
             bosshHealthObject.SetActive(true);
         }
