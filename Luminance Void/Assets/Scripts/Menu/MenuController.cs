@@ -5,12 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class MenuController : MonoBehaviour
 {
-    public void StarGame()
+    public void EnterLevel1()
     {
         SceneManager.LoadScene(1);
     }
 
-    public void EnterTest()
+    public void EnterLevel2()
     {
         SceneManager.LoadScene(2);
     }

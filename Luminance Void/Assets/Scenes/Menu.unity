@@ -25977,7 +25977,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Enter Level 1
+  m_text: Enter Level 2
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -26067,7 +26067,7 @@ GameObject:
   - component: {fileID: 715757257}
   - component: {fileID: 715757256}
   m_Layer: 5
-  m_Name: Enter Test
+  m_Name: Level 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26132,14 +26132,14 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 715757257}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 899161149}
         m_TargetAssemblyTypeName: MenuController, Assembly-CSharp
-        m_MethodName: EnterTest
+        m_MethodName: EnterLevel1
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -26514,7 +26514,7 @@ GameObject:
   - component: {fileID: 1007568470}
   - component: {fileID: 1007568469}
   m_Layer: 5
-  m_Name: Enter Level 1
+  m_Name: Enter Level 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26586,7 +26586,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 899161149}
         m_TargetAssemblyTypeName: MenuController, Assembly-CSharp
-        m_MethodName: StarGame
+        m_MethodName: EnterLevel2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -34739,7 +34739,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Enter Level 0
+  m_text: Enter Level 1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
