@@ -13,8 +13,9 @@ public class SwitchScene : MonoBehaviour
         timer += Time.deltaTime;
         if (timer >= 10)
         {
-            if (SceneManager.GetActiveScene().buildIndex.Equals(1)) SceneManager.LoadScene(2);
-            if (SceneManager.GetActiveScene().buildIndex.Equals(2)) SceneManager.LoadScene(0);
+            SceneManager.LoadScene(0);
+            //if (SceneManager.GetActiveScene().buildIndex.Equals(1)) SceneManager.LoadScene(2);
+            //if (SceneManager.GetActiveScene().buildIndex.Equals(2)) SceneManager.LoadScene(0);
         }
     }
 }
