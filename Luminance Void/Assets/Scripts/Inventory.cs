@@ -9,7 +9,7 @@ public static class Inventory
     public static int health = 100;
 
     public static int maxHealth = 200;
-    public static int coinAmount = 0;
+    public static int coinAmount = 10000;
     public static int healthBuyAmount = 100;
     public static int healthCost = 2;
 

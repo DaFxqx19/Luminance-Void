@@ -15,6 +15,7 @@ public class PlayerControls : MonoBehaviour
     private Rigidbody2D rb;
     private SpriteRenderer rend;
     private Animator anim;
+    private AudioSource audioSource;
 
     [SerializeField] private float moveHorizontalSpeed = 1.0f;
 
@@ -32,6 +33,8 @@ public class PlayerControls : MonoBehaviour
     [SerializeField] private GameObject referenceToUI;
 
     [SerializeField] private GameObject laserObject;
+
+    [SerializeField] private AudioClip fireSound;
 
     private Vector3 musPosition = Vector3.zero;
 
@@ -60,6 +63,7 @@ public class PlayerControls : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         rend = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
 
         //musPosition = new Vector3(-Screen.width / 2, -Screen.height / 2, 0f);
     }
@@ -135,6 +139,7 @@ public class PlayerControls : MonoBehaviour
 
         //Inventory.BuyHealth();
         Debug.Log("We Fired");
+        Inventory.AddCoins(1000);
     }
 
     private void Jump(InputAction.CallbackContext context)
@@ -265,5 +270,23 @@ public class PlayerControls : MonoBehaviour
     private void ShopToggle(InputAction.CallbackContext context)
     {
         referenceToUI.GetComponent<UI>().ToggleShop();
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Fire"))
+        {
+            audioSource.clip = fireSound;
+            audioSource.loop = true;
+            audioSource.Play();
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Fire"))
+        {
+            audioSource.Stop();
+        }
     }
 }
