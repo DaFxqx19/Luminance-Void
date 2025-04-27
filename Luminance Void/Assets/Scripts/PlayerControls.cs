@@ -139,7 +139,6 @@ public class PlayerControls : MonoBehaviour
 
         //Inventory.BuyHealth();
         Debug.Log("We Fired");
-        Inventory.AddCoins(1000);
     }
 
     private void Jump(InputAction.CallbackContext context)
