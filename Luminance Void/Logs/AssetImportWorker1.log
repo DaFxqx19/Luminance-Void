@@ -582,3 +582,8 @@ Start importing Assets/Prefabs/LaserShow.prefab using Guid(9a2e2246330877940bd1e
  -> (artifact id: '72092594db6e6bdaf7e8f1cf5b5deef4') in 0.000726 seconds
 Number of updated asset objects reloaded before import = 0
 Number of asset objects unloaded after import = 0
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+TcpMessagingSession - receive error: operation aborted. errorcode: 995, details: The I/O operation has been aborted because of either a thread exit or an application request.
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0

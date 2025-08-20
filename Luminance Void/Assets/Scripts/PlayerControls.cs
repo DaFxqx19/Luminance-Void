@@ -34,7 +34,8 @@ public class PlayerControls : MonoBehaviour
 
     [SerializeField] private GameObject laserObject;
 
-    [SerializeField] private AudioClip fireSound;
+    [SerializeField] private AudioClip[] laserSounds;
+    [SerializeField] private AudioClip[] jumpSounds;
 
     private Vector3 musPosition = Vector3.zero;
 
@@ -137,6 +138,7 @@ public class PlayerControls : MonoBehaviour
     {
         Instantiate(laserObject, aimObject.transform.position, aimObject.transform.rotation);
 
+        SoundFXManager.instance.PlayRandomSoundFXClip(laserSounds, transform, 1);
         //Inventory.BuyHealth();
         Debug.Log("We Fired");
     }
@@ -146,6 +148,7 @@ public class PlayerControls : MonoBehaviour
         if (CanJump())
         {
             // -1 jump available
+            SoundFXManager.instance.PlayRandomSoundFXClip(jumpSounds, transform, 1);
             rb.velocity = new Vector2(rb.velocity.x, jumpSpeed * rb.gravityScale);
             Debug.Log("We Jumped");
             jumpsDone++;
@@ -273,19 +276,20 @@ public class PlayerControls : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Fire"))
+        /*if (collision.CompareTag("Fire"))
         {
             audioSource.clip = fireSound;
             audioSource.loop = true;
             audioSource.Play();
-        }
+        }*/
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("Fire"))
+        /*if (collision.CompareTag("Fire"))
         {
             audioSource.Stop();
         }
+        */
     }
 }

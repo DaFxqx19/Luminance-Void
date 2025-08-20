@@ -644,3 +644,8 @@ Start importing Assets/Prefabs/Item.prefab using Guid(88ed39c06ca64db4a8486b9742
  -> (artifact id: 'd29a7a439e774dbafec7bd12057d8e42') in 0.000673 seconds
 Number of updated asset objects reloaded before import = 0
 Number of asset objects unloaded after import = 0
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+TcpMessagingSession - receive error: operation aborted. errorcode: 995, details: The I/O operation has been aborted because of either a thread exit or an application request.
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0

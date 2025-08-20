@@ -197,3 +197,85 @@ Start importing Assets/Prefabs/Boss.prefab using Guid(c1de982e7c33e1f4cbd096fb64
  -> (artifact id: 'cd0959cb36d4d467d98a120797ba30e6') in 0.359518 seconds
 Number of updated asset objects reloaded before import = 0
 Number of asset objects unloaded after import = 81
+========================================================================
+Received Import Request.
+  Time since last request: 32.380598 seconds.
+  path: Assets/Sounds/472688__silverillusionist__fire-burst.wav
+  artifactKey: Guid(7bbafa36fcd91ee4088edf2302756a7a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sounds/472688__silverillusionist__fire-burst.wav using Guid(7bbafa36fcd91ee4088edf2302756a7a) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+ -> (artifact id: 'bfa09e3673bb4483096e63f2d82b79af') in 0.031224 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 676.198992 seconds.
+  path: Assets/Sounds
+  artifactKey: Guid(f6173cb9451035943b20aca22cb83412) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sounds using Guid(f6173cb9451035943b20aca22cb83412) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+ -> (artifact id: '8c476f03f1c2b690de3ed36690b4d80b') in 0.000780 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 11.743457 seconds.
+  path: Assets/Sounds/Player
+  artifactKey: Guid(2eaedc66da159f044bb3ebcd6ecf5719) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sounds/Player using Guid(2eaedc66da159f044bb3ebcd6ecf5719) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+ -> (artifact id: '1f385206182492a251df7e8b74144d04') in 0.000605 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 6.284351 seconds.
+  path: Assets/Sounds/Player/Attack
+  artifactKey: Guid(c2e24e5de27c92c469171bb51307add4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sounds/Player/Attack using Guid(c2e24e5de27c92c469171bb51307add4) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+ -> (artifact id: '590114102ece58d54050c9327f8438bc') in 0.000583 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 24.681032 seconds.
+  path: Assets/Sounds/Player/Attack/PLaser1.wav
+  artifactKey: Guid(17eeca92654f6324383219bd05aefbf9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sounds/Player/Attack/PLaser1.wav using Guid(17eeca92654f6324383219bd05aefbf9) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+ -> (artifact id: '3ec16725f52394d26436c83baaf97273') in 0.015204 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/Sounds/Player/Attack/PLaser3.wav
+  artifactKey: Guid(9163016ae9ae59d4fa425715d5004b9d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sounds/Player/Attack/PLaser3.wav using Guid(9163016ae9ae59d4fa425715d5004b9d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+ -> (artifact id: 'f22363bd3a6029d9688016ce68294b6b') in 0.008354 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000036 seconds.
+  path: Assets/Sounds/Player/Attack/PLaser5.wav
+  artifactKey: Guid(fa2ac2b47357e4e4c89909df4496ecb5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sounds/Player/Attack/PLaser5.wav using Guid(fa2ac2b47357e4e4c89909df4496ecb5) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+ -> (artifact id: 'b3be24f85c3713f31be40288cda05eeb') in 0.015339 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/Sounds/Player/Attack/PLaser4.wav
+  artifactKey: Guid(d51f6b296ff336940a3b9310c3ef2261) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sounds/Player/Attack/PLaser4.wav using Guid(d51f6b296ff336940a3b9310c3ef2261) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+ -> (artifact id: 'b0aae5e48aa9e100e779652f0bcca925') in 0.016723 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+TcpMessagingSession - receive error: operation aborted. errorcode: 995, details: The I/O operation has been aborted because of either a thread exit or an application request.
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0
