@@ -14,6 +14,8 @@ public class ItemCollecion : MonoBehaviour
      }
    */
 
+    [SerializeField] private AudioClip[] pickupSounds;
+
     private void Update()
     {
         if (Mathf.Abs(PlayerControls.FindFirstObjectByType<PlayerControls>().transform.position.x - transform.position.x) < 0.35 &&
@@ -21,6 +23,7 @@ public class ItemCollecion : MonoBehaviour
         {
             Inventory.AddCoins(10);
             Destroy(this.gameObject);
+            SoundFXManager.instance.PlayRandomSoundFXClip(pickupSounds, transform, .2f);
         }
     }
 }

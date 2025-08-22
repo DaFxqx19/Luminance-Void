@@ -184,6 +184,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 048734a0c8c33b441a9ed0508a42f592, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pickupSounds:
+  - {fileID: 8300000, guid: 87f04a73e3f042d4181249906dfb0b26, type: 3}
+  - {fileID: 8300000, guid: 9113dcdb127c11240890031a37cc1891, type: 3}
+  - {fileID: 8300000, guid: dc9c66f1153235a488e58ab986e985d9, type: 3}
+  - {fileID: 8300000, guid: d3be3cf1f09bdc04da567bfb217700e1, type: 3}
+  - {fileID: 8300000, guid: 78e4108cdc996af4fa74565b3c90ca98, type: 3}
+  - {fileID: 8300000, guid: 17bc8a4954444ed41aa2221568d26c5f, type: 3}
+  - {fileID: 8300000, guid: 0cff1009f23849145b32a58bccb7a6cd, type: 3}
+  - {fileID: 8300000, guid: 219e31da014da8144999c3c7fe0ba7c1, type: 3}
 --- !u!114 &5821090976099399675
 MonoBehaviour:
   m_ObjectHideFlags: 0
