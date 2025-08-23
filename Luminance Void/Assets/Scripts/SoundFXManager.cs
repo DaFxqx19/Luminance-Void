@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 
 // https://www.youtube.com/watch?v=DU7cgVsU2rM&t=219s
@@ -10,6 +11,8 @@ public class SoundFXManager : MonoBehaviour
 
     [SerializeField] private AudioSource soundFXObject;
 
+    [SerializeField] private AudioSource continousSoundFXObject;
+
     private void Awake()
     {
         if (instance == null)
@@ -18,9 +21,9 @@ public class SoundFXManager : MonoBehaviour
         }
     }
 
-    public void PlaySoundFXClip(AudioClip audioClip, Transform spawnTransform, float volume)
+    public void PlaySoundFXClip(AudioClip audioClip, Vector3 spawnPosition, float volume)
     {
-        AudioSource audioSource = Instantiate(soundFXObject, spawnTransform.position, Quaternion.identity);
+        AudioSource audioSource = Instantiate(soundFXObject, spawnPosition, Quaternion.identity);
 
         audioSource.clip = audioClip;
         audioSource.volume = volume;
@@ -29,16 +32,36 @@ public class SoundFXManager : MonoBehaviour
         Destroy(audioSource.gameObject, clipLength);
     }
 
-    public void PlayRandomSoundFXClip(AudioClip[] audioClip, Transform spawnTransform, float volume)
+    public void PlayRandomSoundFXClip(AudioClip[] audioClip, Vector3 spawnPosition, float volume)
     {
         int rand = Random.Range(0, audioClip.Length);
 
-        AudioSource audioSource = Instantiate(soundFXObject, spawnTransform.position, Quaternion.identity);
+        AudioSource audioSource = Instantiate(soundFXObject, spawnPosition, Quaternion.identity);
 
         audioSource.clip = audioClip[rand];
         audioSource.volume = volume;
         audioSource.Play();
         float clipLength = audioSource.clip.length;
         Destroy(audioSource.gameObject, clipLength);
+    }
+
+    public void PlayRandomSoundFXClipContinously(AudioClip[] audioClip, Vector3 spawnPosition, float volume)
+    {
+        int rand = Random.Range(0, audioClip.Length);
+
+        AudioSource audioSource = Instantiate(continousSoundFXObject, spawnPosition, Quaternion.identity);
+
+        audioSource.clip = audioClip[rand];
+        audioSource.volume = volume;
+        audioSource.Play();
+    }
+
+    public void PlayRandomSoundFXClipContinously(AudioClip[] audioClip, Vector3 spawnPosition, float volume, string type)
+    {
+        if (type.Equals("Fire"))
+        {
+            // position + new Vector3(6.25f / 2, 0, 0);
+            PlayRandomSoundFXClipContinously(audioClip, spawnPosition + new Vector3(6.25f / 2, 0, 0), volume);
+        }
     }
 }

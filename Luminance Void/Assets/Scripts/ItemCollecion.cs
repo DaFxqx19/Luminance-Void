@@ -23,7 +23,7 @@ public class ItemCollecion : MonoBehaviour
         {
             Inventory.AddCoins(10);
             Destroy(this.gameObject);
-            SoundFXManager.instance.PlayRandomSoundFXClip(pickupSounds, transform, .2f);
+            SoundFXManager.instance.PlayRandomSoundFXClip(pickupSounds, transform.position, .2f);
         }
     }
 }

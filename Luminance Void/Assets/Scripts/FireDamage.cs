@@ -7,6 +7,13 @@ public class FireDamage : MonoBehaviour
     private bool isInside = false;
     private float timer = 0;
 
+    [SerializeField] private AudioClip[] fireSounds;
+
+    private void Awake()
+    {
+        SoundFXManager.instance.PlayRandomSoundFXClipContinously(fireSounds, transform.position, 1, "Fire");
+    }
+
     // Update is called once per frame
     private void Update()
     {

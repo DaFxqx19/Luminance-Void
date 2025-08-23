@@ -45,3 +45,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundFXObject: {fileID: 2145022602125736859, guid: 3c1143827d575fc45be750c842d8cf04, type: 3}
+  continousSoundFXObject: {fileID: 6431298904992584982, guid: cc4d95cc35a82704ebaf77f5be850515, type: 3}

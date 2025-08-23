@@ -36,6 +36,7 @@ public class PlayerControls : MonoBehaviour
 
     [SerializeField] private AudioClip[] laserSounds;
     [SerializeField] private AudioClip[] jumpSounds;
+    [SerializeField] private AudioClip[] stepSounds;
 
     private Vector3 musPosition = Vector3.zero;
 
@@ -138,7 +139,7 @@ public class PlayerControls : MonoBehaviour
     {
         Instantiate(laserObject, aimObject.transform.position, aimObject.transform.rotation);
 
-        SoundFXManager.instance.PlayRandomSoundFXClip(laserSounds, transform, 1);
+        SoundFXManager.instance.PlayRandomSoundFXClip(laserSounds, transform.position, 1);
         //Inventory.BuyHealth();
         Debug.Log("We Fired");
     }
@@ -148,7 +149,7 @@ public class PlayerControls : MonoBehaviour
         if (CanJump())
         {
             // -1 jump available
-            SoundFXManager.instance.PlayRandomSoundFXClip(jumpSounds, transform, 1);
+            SoundFXManager.instance.PlayRandomSoundFXClip(jumpSounds, transform.position, 1);
             rb.velocity = new Vector2(rb.velocity.x, jumpSpeed * rb.gravityScale);
             Debug.Log("We Jumped");
             jumpsDone++;
@@ -291,5 +292,10 @@ public class PlayerControls : MonoBehaviour
             audioSource.Stop();
         }
         */
+    }
+
+    public void PlayStepSound()
+    {
+        SoundFXManager.instance.PlayRandomSoundFXClip(stepSounds, transform.position, 1);
     }
 }
