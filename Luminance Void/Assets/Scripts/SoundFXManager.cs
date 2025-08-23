@@ -45,6 +45,35 @@ public class SoundFXManager : MonoBehaviour
         Destroy(audioSource.gameObject, clipLength);
     }
 
+    /*public void PlayRandomSoundFXClip(AudioClip[] audioClip, GameObject parentRef, float volume)
+    {
+        int rand = Random.Range(0, audioClip.Length);
+
+        AudioSource audioSource = Instantiate(soundFXObject, new Vector3(0, 0, 0), Quaternion.identity);
+
+        audioSource.clip = audioClip[rand];
+        audioSource.volume = volume;
+        audioSource.Play();
+    }
+    */
+
+    public void PlayRandomSoundFXClip(AudioClip[] audioClip, GameObject parentRef, float volume)
+    {
+        int rand = Random.Range(0, audioClip.Length);
+
+        // Instantiate as child of parentRef
+        AudioSource audioSource = Instantiate(soundFXObject, parentRef.transform);
+
+        // Optional: reset local position if you want it centered on the parent
+        audioSource.transform.localPosition = Vector3.zero;
+
+        audioSource.clip = audioClip[rand];
+        audioSource.volume = volume;
+        audioSource.Play();
+
+        Destroy(audioSource.gameObject, audioSource.clip.length);
+    }
+
     public void PlayRandomSoundFXClipContinously(AudioClip[] audioClip, Vector3 spawnPosition, float volume)
     {
         int rand = Random.Range(0, audioClip.Length);

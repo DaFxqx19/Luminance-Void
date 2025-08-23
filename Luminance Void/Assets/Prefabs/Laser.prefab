@@ -47,6 +47,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91f36fb6ee63d3947a10f6a0a6f12413, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  laserSounds:
+  - {fileID: 8300000, guid: b6b32462302299d468652abde14cc301, type: 3}
+  - {fileID: 8300000, guid: 66e8c8fcb7cccd441a8ce6211b0642bc, type: 3}
+  - {fileID: 8300000, guid: 6bb5890fc60e60b42807c867cc0f63d7, type: 3}
+  - {fileID: 8300000, guid: 8e4973377d96b6f46ae5e396cfdef0e9, type: 3}
+  - {fileID: 8300000, guid: 726b9156b60ad0f4ea7c99895130e349, type: 3}
   laserSpeed: 50
 --- !u!50 &3956441537031119290
 Rigidbody2D:

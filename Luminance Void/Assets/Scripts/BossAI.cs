@@ -18,6 +18,9 @@ public class BossAI : MonoBehaviour
 
     [SerializeField] private GameObject healthSliderObject;
 
+    [SerializeField] private AudioClip[] chargingUpSounds;
+    [SerializeField] private AudioClip deathSound;
+
     public bool isActive = false;
 
     // for future random timing
@@ -93,6 +96,9 @@ public class BossAI : MonoBehaviour
             yield return new WaitForSeconds(.2f);
             ChargeUp();
         }
+        yield return new WaitForSeconds(1.2f);
+
+        SoundFXManager.instance.PlayRandomSoundFXClip(chargingUpSounds, transform.position, 1);
     }
 
     private void ChargeUp()

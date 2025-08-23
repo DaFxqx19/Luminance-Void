@@ -5,6 +5,7 @@ using UnityEngine;
 public class BossLaserShow : MonoBehaviour
 {
     [SerializeField] private GameObject laser;
+
     private float timer = 0;
 
     private float maxTime = 1;
